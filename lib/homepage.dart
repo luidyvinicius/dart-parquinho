@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red[400],
+        backgroundColor: Color.fromARGB(255, 255, 4, 0),
         title: const Text("Home Page"),
       ),
       body: Center(
@@ -42,8 +42,8 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               color: Colors.green,
-              height: 60,
-              width: 60,
+              height: 70,
+              width: 70,
             ),
           ],
         ),
