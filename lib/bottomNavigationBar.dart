@@ -43,22 +43,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
-          backgroundColor: Color.fromARGB(255, 255, 51, 51),
+          backgroundColor: Color.fromARGB(255, 122, 244, 255),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.business),
           label: 'Business',
-          backgroundColor: Color.fromARGB(255, 255, 34, 34),
+          backgroundColor: Color.fromARGB(255, 34, 189, 255),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.school),
           label: 'School',
-          backgroundColor: Color.fromARGB(255, 188, 12, 12),
+          backgroundColor: Color.fromARGB(255, 12, 123, 188),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),
           label: 'Settings',
-          backgroundColor: Color.fromARGB(255, 156, 7, 7),
+          backgroundColor: Color.fromARGB(255, 7, 37, 156),
         ),
       ],
       currentIndex: _selectedIndex,
