@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:meu_app_inicial/components/loginButton.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -49,82 +50,28 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        width: 200 * 0.8,
-                        height: 200 * 0.25,
-                        child: ElevatedButton(
-                          autofocus: false,
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white),
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(13.0),
-                                      side: BorderSide.none))),
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Icon(
-                                MdiIcons.facebook,
-                                color: _colorG,
-                              ),
-                              Text(
-                                "Facebook",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w800,
-                                    color: _colorG),
-                              ),
-                            ],
-                          ),
-                        ),
+                      LoginButton(
+                        colorG: _colorG,
+                        icone: MdiIcons.facebook,
+                        nomeBotao: "Facebook",
                       ),
                       Container(
                         width: 20,
                       ),
-                      SizedBox(
-                        width: 200 * 0.8,
-                        height: 200 * 0.25,
-                        child: ElevatedButton(
-                          autofocus: false,
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Colors.white),
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(13.0),
-                                      side: BorderSide.none))),
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Icon(
-                                MdiIcons.google,
-                                color: _colorG,
-                              ),
-                              Text(
-                                "Google",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w800,
-                                    color: _colorG),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      LoginButton(
+                        colorG: _colorG,
+                        icone: MdiIcons.google,
+                        nomeBotao: "Google",
+                      )
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 60),
+                  padding: const EdgeInsets.only(bottom: 30),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Não é cadastrado?"),
+                        const Text("Não é cadastrado?"),
                         TextButton(
                           onPressed: () {},
                           child: Text(
@@ -138,7 +85,15 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 0, 223, 126),
+                  gradient: LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 2, 191, 109),
+                        Color.fromARGB(255, 0, 223, 126),
+                      ],
+                      begin: FractionalOffset(0.0, 0.0),
+                      end: FractionalOffset(0.0, 1.0),
+                      stops: [0.0, 1.0],
+                      tileMode: TileMode.clamp),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(45),
                       bottomRight: Radius.circular(45))),
@@ -251,31 +206,11 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          width: 410 * 0.8,
-                          height: 200 * 0.25,
-                          child: ElevatedButton(
-                            autofocus: false,
-                            child: Text(
-                              "Entrar",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w800,
-                                  color: Color.fromARGB(255, 0, 223, 126)),
-                            ),
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.white),
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(13.0),
-                                        side: BorderSide.none))),
-                            onPressed: () {},
-                          ),
-                        ),
+                        LoginButton(
+                          colorG: _colorG,
+                          icone: MdiIcons.login,
+                          nomeBotao: "Entrar",
+                        )
                       ],
                     ),
                   ),
@@ -288,53 +223,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-// class Body extends StatefulWidget {
-//   const Body({Key? key}) : super(key: key);
-
-//   @override
-//   _BodyState createState() => _BodyState();
-// }
-
-// class _BodyState extends State<Body> {
-//   final controller = TextEditingController();
-//   final list = <String>[];
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(children: [
-//       Padding(
-//         padding: const EdgeInsets.all(8.0),
-//         child: Row(
-//           children: [
-//             Expanded(
-//                 child: TextField(
-//               controller: controller,
-//             )),
-//             IconButton(
-//                 onPressed: () {
-//                   final text = controller.text;
-//                   setState(() {
-//                     list.add(text);
-//                   });
-//                   controller.clear();
-//                 },
-//                 icon: const Icon(
-//                   Icons.send,
-//                   color: Colors.blue,
-//                 ))
-//           ],
-//         ),
-//       ),
-//       Expanded(
-//         child: ListView.builder(
-//             itemCount: list.length,
-//             itemBuilder: (context, index) {
-//               final item = list[index];
-//               return ListTile(
-//                 title: Text(item),
-//               );
-//             }),
-//       )
-//     ]);
-//   }
-// }
